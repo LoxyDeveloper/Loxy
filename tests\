@@ -1,0 +1,11 @@
+import unittest
+from src.utils import find_reused_code
+
+class TestAnalyzer(unittest.TestCase):
+    def test_find_reused_code(self):
+        repo_data = [{"content": "def hello(): pass"}, {"content": "def hello(): pass"}]
+        reused = find_reused_code(repo_data)
+        self.assertEqual(len(reused), 1)
+
+if __name__ == "__main__":
+    unittest.main()
